@@ -20,7 +20,7 @@
       color: white;
       text-align: center;
       height: 100px;
-      background-color: #333;
+      background-color: #f59e0c;
       display: flex;
       justify-content: center;
       align-items: center;
@@ -61,6 +61,7 @@
       font-size: 14px;
       width: 100%;
       box-sizing: border-box;
+
     }
     .card input[type="radio"] {
       margin-right: 8px;
