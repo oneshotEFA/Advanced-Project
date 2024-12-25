@@ -10,6 +10,8 @@
             background-color: rgb(47, 58, 55);
         }
         .barr {
+
+
             position: absolute;
             top: 20px;
             z-index: 100;
@@ -244,86 +246,85 @@
         </form>
     </div>
     <h2>Avilable Propertiess</h2>
-    <div class="gall">
-        <span style="--i:1"><img src="image/wesang.jpg" ></span>
-        <span style="--i:2"><img src="image/ok.jpg" ></span>
-        <span style="--i:3"><img src="image/ok2.jpg" ></span>
-        <span style="--i:4"><img src="image/consrtuction.jpg" ></span>
-        <span style="--i:5"><img src="image/theone.webp" ></span>
-        <span style="--i:6"><img src="image/login_1.jpg" ></span>
-        <span style="--i:7"><img src="image/R.jpg" ></span>
-        <span style="--i:8"><img src="image/may.jpg" ></span>
-    </div>
+
 </header>
 <div class="togg" id="togg">
-    <a href="index.jsp">Home</a>
-    <a href="#">Services</a>
-    <a href="#">About Us</a>
-    <a href="#">Contact Us</a>
+<a href="index.jsp">Home</a>
+<a href="#">Services</a>
+<a href="#">About Us</a>
+<a href="#">Contact Us</a>
 </div>
 <div class="info">
-    <h3>The following are avilable proprerties which you can buy and rent and there detail information is writtin at the buttom of their picture</h3>
+<h3>The following are avilable proprerties which you can buy and rent and there detail information is writtin at the buttom of their picture</h3>
 </div>
+<form id="myForm" method="get" action="view_individual">
+    <input id="id"  name="id" type="hidden" >
+</form>
 <div class="container">
-    <%
-        int id = 0,size = 0,bedroom=0,bathroom=0,price=0;
-        String address = null,description = null,status = null;
-        byte[] image1 = new byte[0],image2=new byte[0],image3=new byte[0];
-        ResultSet rs=null;
-        if(request.getAttribute("Data_filter")!=null){
-            rs = (ResultSet) request.getAttribute("Data_filter");
+<%
+    int id = 0,size = 0,bedroom=0,bathroom=0,price=0;
+    String address = null,description = null,status = null;
+    byte[] image1 = new byte[0],image2=new byte[0],image3=new byte[0];
+    ResultSet rs=null;
+    if(request.getAttribute("Data_filter")!=null){
+        rs = (ResultSet) request.getAttribute("Data_filter");
+    }
+    else{
+        rs = (ResultSet) request.getAttribute("Data");
+    }
+    while(rs.next()){
+        try {
+            id = rs.getInt(1);
+            price = rs.getInt(2);
+            address = rs.getString(3);
+            size = rs.getInt(4);
+            bedroom = rs.getInt(5);
+            bathroom = rs.getInt(6);
+            status = rs.getString(7);
+            image1 = rs.getBytes(8);
+            image2 = rs.getBytes(9);
+            image3 = rs.getBytes(10);
+            description = rs.getString(11);
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
         }
-        else{
-            rs = (ResultSet) request.getAttribute("Data");
-        }
-        while(rs.next()){
-            try {
-                id = rs.getInt(1);
-                price = rs.getInt(2);
-                address = rs.getString(3);
-                size = rs.getInt(4);
-                bedroom = rs.getInt(5);
-                bathroom = rs.getInt(6);
-                status = rs.getString(7);
-                image1 = rs.getBytes(8);
-                image2 = rs.getBytes(9);
-                image3 = rs.getBytes(10);
-                description = rs.getString(11);
-            } catch (SQLException e) {
-                throw new RuntimeException(e);
-            }
-        String data1 = java.util.Base64.getEncoder().encodeToString(image1);
-        String path1 = "data:image/jpeg;base64,"+data1;
-    %>`
-    <div class="conn">
-        <div class="bx">
-           <img id="img1" src="<%=path1%>" alt="">
+    String data1 = java.util.Base64.getEncoder().encodeToString(image1);
+    String path1 = "data:image/jpeg;base64,"+data1;
+%>`
+        <div class="conn" onclick="submitForm(<%=id%>)">
+            <div class="bx">
+                <img id="img1" src="<%=path1%>" alt="">
+            </div>
+            <div class="att">
+                <h4><%=price%>$</h4>
+                <p><%=bedroom%> bd  |</p>
+                <p>|<%=bathroom%> ba |</p>
+                <p>| <%=status%>> |</p>
+                <p>| <%=address%>, Ethiopia |</p>
+                <p>| <%=size%>sq </p>
+            </div>
+
         </div>
-        <div class="att">
-           <h4><%=price%>$</h4>
-           <p><%=bedroom%> bd  |</p>
-           <p>|<%=bathroom%> ba |</p>
-           <p>| <%=status%>> |</p>
-           <p>| <%=address%>Ras Hotel |</p>
-           <p>| <%=size%>sq </p>
-        </div>
-    </div>
-    <%}%>
+<%}%>
 </div>
 <footer>
-    <footer>
-        <p>&copy; 2024 . All rights reserved. | Designed with eph</p>
-        <p>Follow us on <a href="#">Facebook</a>, <a href="#">Twitter</a>, and <a href="#">Instagram</a></p>
-        <div class="im">
-            <img src="image/footer-art.svg" alt="">
-        </div>
-    </footer>
+<footer>
+    <p>&copy; 2024 . All rights reserved. | Designed with eph</p>
+    <p>Follow us on <a href="#">Facebook</a>, <a href="#">Twitter</a>, and <a href="#">Instagram</a></p>
+    <div class="im">
+
+    </div>
+</footer>
 </footer>
 <script>
-    function togle() {
-        var m = document.getElementById("togg");
-        m.style.width = m.style.width === "150px" ? "0" : "150px";
-    }
+function togle() {
+    var m = document.getElementById("togg");
+    m.style.width = m.style.width === "150px" ? "0" : "150px";
+}
+function submitForm(ID) {
+    document.getElementById("id").value = ID;
+    document.getElementById("myForm").submit();
+}
 </script>
 </body>
 </html>
