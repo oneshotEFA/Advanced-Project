@@ -16,9 +16,32 @@
       background-color: #cccccc;
     }
     .container{
+<<<<<<< HEAD
       display: flex;
       flex-wrap: wrap;
     }
+=======
+      gap: 10px;
+      width: 100%;
+      display:flex;
+      flex-wrap: wrap;
+    }
+    .bx{
+      text-align: center;
+      height: 170px;
+      width: 300px;
+      border-radius: 10px;
+      display:block;
+      overflow: hidden;
+      border: none;
+      margin-top: 30px;
+    }
+    .bx img{
+      width: 300px;
+      height: 170px;
+      object-fit: cover;
+    }
+>>>>>>> ephi
     .conn{
       background-color: rgba(190, 204, 195, 0.93);
       display: flex;
@@ -30,7 +53,11 @@
 
 </head>
 <body>
+<<<<<<< HEAD
 <h3>hello brother</h3>
+=======
+
+>>>>>>> ephi
 <div class="container">
   <%
     int id = 0,size = 0,bedroom=0,bathroom=0,price=0;

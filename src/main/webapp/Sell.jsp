@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <%--
   Created by IntelliJ IDEA.
   User: efatr
@@ -5,6 +6,11 @@
   Time: 11:10 AM
   To change this template use File | Settings | File Templates.
 --%>
+=======
+
+
+
+>>>>>>> ephi
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <!DOCTYPE html>
 <html lang="en">
@@ -24,7 +30,11 @@
       color: white;
       text-align: center;
       height: 100px;
+<<<<<<< HEAD
       background-color: #333;
+=======
+      background-color: #f59e0c;
+>>>>>>> ephi
       display: flex;
       justify-content: center;
       align-items: center;
@@ -65,6 +75,10 @@
       font-size: 14px;
       width: 100%;
       box-sizing: border-box;
+<<<<<<< HEAD
+=======
+
+>>>>>>> ephi
     }
     .card input[type="radio"] {
       margin-right: 8px;
