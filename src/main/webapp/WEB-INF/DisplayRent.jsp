@@ -10,6 +10,8 @@
             background-color: rgb(47, 58, 55);
         }
         .barr {
+
+
             position: absolute;
             top: 20px;
             z-index: 100;

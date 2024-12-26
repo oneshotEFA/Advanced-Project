@@ -31,7 +31,10 @@
             top: 5%;
             left: 0;
             overflow-x: hidden;
+<<<<<<< HEAD
+=======
             backdrop-filter:blur(6px);
+>>>>>>> ephi
             padding-top: 60px;
             transition: ease-out 0.4s;
         }
@@ -63,7 +66,10 @@
             text-align: center;
             width: 45%;
             height: 500px;
+<<<<<<< HEAD
+=======
             backdrop-filter:blur(6px);
+>>>>>>> ephi
             border-radius: 10%;
         }
         .login h2{
@@ -184,6 +190,8 @@
                 <div class="bt">
                     <button >Login</button>
                 </div>
+<<<<<<< HEAD
+=======
                 <%
                     if (request.getAttribute("error")!=null){
                 %>
@@ -191,6 +199,7 @@
                     <p style="color: red"><%=request.getAttribute("error")%></p>
                 </div>
                 <%}%>
+>>>>>>> ephi
             </form>
 
         </div>
@@ -208,7 +217,10 @@
     <footer>
         <p>&copy; 2024 . All rights reserved. | Designed with eph</p>
         <p>Follow us on <a href="#">Facebook</a>, <a href="#">Twitter</a>, and <a href="#">Instagram</a></p>
+<<<<<<< HEAD
+=======
 
+>>>>>>> ephi
     </footer>
 </footer>
 <script>

@@ -229,7 +229,13 @@
     <footer>
         <p>&copy; 2024 . All rights reserved. | Designed with ♥ eph</p>
         <p>Follow us on <a href="#">Facebook</a>, <a href="#">Twitter</a>, and <a href="#">Instagram</a></p>
+<<<<<<< HEAD
+        <div class="im">
+            <img src="image/footer-art.svg" alt="">
+        </div>
+=======
 
+>>>>>>> ephi
     </footer>
 </footer>
 
@@ -240,6 +246,10 @@
     }
 
 </script>
+<<<<<<< HEAD
 
+=======
+uu
+>>>>>>> ephi
 </body>
 </html>
