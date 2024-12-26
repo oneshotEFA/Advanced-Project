@@ -1,4 +1,4 @@
-package com.example;
+package com.example.managment;
 
 import java.io.*;
 import java.sql.SQLException;

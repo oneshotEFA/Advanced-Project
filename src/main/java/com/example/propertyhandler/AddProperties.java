@@ -1,4 +1,4 @@
-package com.example;
+package com.example.propertyhandler;
 
 import com.example.Connector_Manupuletor.Manipuletor;
 import jakarta.servlet.RequestDispatcher;

@@ -15,7 +15,7 @@
             animation: scaleUp ease-out 1s;
         }
 
-        /* Header */
+
         header {
             height: 600px;
             background-image: url("image/barbod-nili-lowscale.jpg");
