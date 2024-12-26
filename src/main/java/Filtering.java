@@ -1,8 +1,8 @@
-<<<<<<< HEAD
-import com.example.advanced_project.Connector_Manupuletor.Manipuletor;
-=======
+
 import com.example.Connector_Manupuletor.Manipuletor;
->>>>>>> ephi
+
+
+
 import jakarta.servlet.RequestDispatcher;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
