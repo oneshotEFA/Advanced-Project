@@ -51,7 +51,23 @@ public class Manipuletor {
         cs = con.prepareStatement("select * from property where property_status='For Rent'");
         return cs.executeQuery();
     }
+    public static boolean changepass(String username,String current,String newpass) throws SQLException {
+        Connection con = Dbconnector.connect();
+        String admin_password = "";
+        String sql = "select admin_password from admin where admin_username='"+username+"'";
+        String sqlupdate="update admin set admin_password='"+newpass+"' where admin_username='"+username+"'";
+        Statement st = con.createStatement();
+        PreparedStatement ps = con.prepareStatement(sqlupdate);
 
+        ResultSet rs = st.executeQuery(sql);
+        while(rs.next()){
+            admin_password= rs.getString("admin_password");
+        }
+        if(current.equals(admin_password)){
+            return ps.executeUpdate() >= 1;
+        }
+        return false;
+    }
     public static boolean Autentication(String user, String pass) throws SQLException {
         Connection con = Dbconnector.connect();
         String password = "";

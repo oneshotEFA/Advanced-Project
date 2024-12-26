@@ -175,7 +175,6 @@
             border-radius: 10px;
             border: 6px ridge #ccc;
         }
-
         @keyframes gallary {
             0% {
                 transform: perspective(2000px) rotateY(0deg);
@@ -255,7 +254,7 @@
 <a href="#">Contact Us</a>
 </div>
 <div class="info">
-<h3>The following are avilable proprerties which you can buy and rent and there detail information is writtin at the buttom of their picture</h3>
+<h3>The following are available properties which you can buy and rent and there detail information is writtin at the buttom of their picture</h3>
 </div>
 <form id="myForm" method="get" action="view_individual">
     <input id="id"  name="id" type="hidden" >
