@@ -6,6 +6,41 @@
     <title>Admin Dashboard</title>
 
     <style>
+        .barr {
+            position: absolute;
+            top: 20px;
+            z-index: 100;
+            left: 20px;
+            font-size: 25px;
+            cursor: pointer;
+        }
+        .togg {
+            height: 60%;
+            width: 0;
+            position: fixed;
+            z-index: 99;
+            top: 5%;
+            left: 0;
+            overflow-x: hidden;
+            background-color: #506651;
+            padding-top: 60px;
+            transition: ease-out 0.4s;
+        }
+        .togg a {
+            margin-top: 20px;
+            color: white;
+            padding: 10px 20px;
+            text-decoration: none;
+            font-size: 20px;
+            display: block;
+            border-color: #333;
+            border-radius: 5px;
+            transition: transform 0.3s;
+        }
+
+        .togg a:hover {
+            transform: scale(1.05);
+        }
         body {
             margin: 0;
             background-color: #ffffff;
@@ -76,9 +111,17 @@
 <body>
 
 <header>
+    <div class="barr" onclick="togle()">
+        <p>&#9776;</p>
+    </div>
     <h1>Welcome Sir!</h1>
 </header>
-
+<div class="togg" id="togg">
+    <a href="index.jsp">Home</a>
+    <a href="#">Services</a>
+    <a href="#">About Us</a>
+    <a href="manage">Manage Account</a>
+</div>
 <div class="container">
     <div class="card">
         <form method="get" action="approve">
@@ -116,5 +159,11 @@
 <footer>
     <p>&copy; 2024 RealEstate Broacker <a href="">About us</a></p>
 </footer>
+<script>
+    function togle() {
+        var m = document.getElementById("togg");
+        m.style.width = m.style.width === "150px" ? "0" : "150px";
+    }
+</script>
 </body>
 </html>

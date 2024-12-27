@@ -1,8 +1,6 @@
+package com.example.filterhandler;
 
 import com.example.Connector_Manupuletor.Manipuletor;
-
-
-
 import jakarta.servlet.RequestDispatcher;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
