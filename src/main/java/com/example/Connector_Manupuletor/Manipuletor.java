@@ -131,4 +131,16 @@ public class Manipuletor {
         st.setInt(1,id);
         return st.executeQuery();
     }
+    public static void chnageusername(String user,String olduser) throws SQLException {
+        Connection con = Dbconnector.connect();
+        String sql="update Admin set admin_username='"+user+"' where admin_username='"+olduser+"'";
+        PreparedStatement ps = con.prepareStatement(sql);
+        ps.execute();
+        con.close();
+    }
+
+    public static void main(String[] args) throws SQLException {
+        chnageusername("ephi","ephrem");
+    }
 }
+

@@ -6,7 +6,7 @@
     <title>Title</title>
     <style>
         body{
-            animation: scaleUp ease-out 1s;
+
             background-color: rgb(47, 58, 55);
         }
         .barr {
