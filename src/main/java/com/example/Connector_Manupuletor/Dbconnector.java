@@ -1,4 +1,4 @@
-package com.example.advanced_project.Connector_Manupuletor;
+package com.example.Connector_Manupuletor;
 
 import java.sql.Connection;
 import java.sql.DriverManager;

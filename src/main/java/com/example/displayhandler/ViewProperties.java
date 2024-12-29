@@ -1,7 +1,7 @@
-package com.example.advanced_project;
+package com.example.displayhandler;
 
-import com.example.advanced_project.Connector_Manupuletor.Dbconnector;
-import com.example.advanced_project.Connector_Manupuletor.Manipuletor;
+
+import com.example.Connector_Manupuletor.Manipuletor;
 import jakarta.servlet.RequestDispatcher;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
@@ -10,8 +10,6 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 
 import java.io.IOException;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 

@@ -1,6 +1,5 @@
-package com.example.advanced_project;
-
-import com.example.advanced_project.Connector_Manupuletor.Manipuletor;
+package com.example.requesthandler;
+import com.example.Connector_Manupuletor.Manipuletor;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.MultipartConfig;
 import jakarta.servlet.annotation.WebServlet;
@@ -8,7 +7,6 @@ import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.Part;
-
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
@@ -19,20 +17,22 @@ import java.sql.SQLException;
 @MultipartConfig
 public class SellRequest extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        Part image1 = request.getPart("img1");
-        Part image2 = request.getPart("img2");
-        Part image3 = request.getPart("img3");
-        FileInputStream fis1 = pathgeter(image1);
-        FileInputStream fis2 = pathgeter(image2);
-        FileInputStream fis3 = pathgeter(image3);
-        String price =request.getParameter("price");
-        String address =request.getParameter("address");
-        int size =Integer.parseInt(request.getParameter("size"));
-        int bed =Integer.parseInt(request.getParameter("bed"));
-        int bath =Integer.parseInt(request.getParameter("bath"));
-        String status =request.getParameter("status");
-        String disc =request.getParameter("disc");
         try {
+            response.setContentType("text/html");
+            Part image1 = request.getPart("img1");
+            Part image2 = request.getPart("img2");
+            Part image3 = request.getPart("img3");
+            FileInputStream fis1 = pathgeter(image1);
+            FileInputStream fis2 = pathgeter(image2);
+            FileInputStream fis3 = pathgeter(image3);
+            String price =request.getParameter("price");
+            String address =request.getParameter("address");
+            int size =Integer.parseInt(request.getParameter("size"));
+            int bed =Integer.parseInt(request.getParameter("bed"));
+            int bath =Integer.parseInt(request.getParameter("bath"));
+            String status =request.getParameter("status");
+            String disc =request.getParameter("disc");
+
             PrintWriter out = response.getWriter();
             Manipuletor.accept(Integer.parseInt(price),address,size,bed,bath,status,fis1,fis2,fis3,disc);
             out.println("Request Sent to The Admin After the review it will be posted in the Web soon!!");

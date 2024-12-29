@@ -1,6 +1,6 @@
-package com.example.advanced_project;
+package com.example.displayhandler;
 
-import com.example.advanced_project.Connector_Manupuletor.Manipuletor;
+import com.example.Connector_Manupuletor.Manipuletor;
 import jakarta.servlet.RequestDispatcher;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;

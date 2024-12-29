@@ -2,8 +2,8 @@
 <%@ page import="java.sql.SQLException" %>
 <%
 
-    if (session == null ) {
-        response.sendRedirect("login.html"); // Redirect to login page
+    if (session == null || session.getAttribute("isAdmin") == null ) {
+        response.sendRedirect("AdminLogin.jsp");
         return;
     }
 %>
