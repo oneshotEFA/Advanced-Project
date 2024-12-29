@@ -3,12 +3,6 @@
   <component name="WebContextManager">
     <option name="state">
       <map>
-<<<<<<< HEAD
-=======
-        <entry key="file://$PROJECT_DIR$/src/main/webapp/AdminLoginPage.jsp" value="file://$PROJECT_DIR$/src/main/webapp" />
->>>>>>> ephi
-        <entry key="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/Approving.jsp" value="file://$PROJECT_DIR$/src/main/webapp/WEB-INF" />
-        <entry key="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/DisplayRent.jsp" value="file://$PROJECT_DIR$/src/main/webapp" />
         <entry key="file://$PROJECT_DIR$/src/main/webapp/index.jsp" value="file://$PROJECT_DIR$/src/main/webapp" />
       </map>
     </option>
