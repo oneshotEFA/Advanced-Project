@@ -61,10 +61,6 @@
       font-size: 14px;
       width: 100%;
       box-sizing: border-box;
-<<<<<<< HEAD
-=======
-
->>>>>>> ephi
     }
     .card input[type="radio"] {
       margin-right: 8px;
@@ -95,6 +91,41 @@
       margin-bottom: 20px;
       font-size: 18px;
       font-weight: bold;
+    }
+    .modal {
+      display: none;
+      position: fixed;
+      z-index: 1;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      overflow: auto;
+      background-color: rgb(0,0,0);
+      background-color: rgba(0,0,0,0.4);
+      padding-top: 60px;
+      border-radius: 8px;
+    }
+    .modal-content {
+      background-color: #fefefe;
+      margin: 5% auto;
+      padding: 20px;
+      border: 1px solid #888;
+      width: 80%;
+      max-width: 500px;
+      border-radius: 5px;
+    }
+    .close {
+      color: #aaa;
+      float: right;
+      font-size: 28px;
+      font-weight: bold;
+    }
+    .close:hover,
+    .close:focus {
+      color: black;
+      text-decoration: none;
+      cursor: pointer;
     }
   </style>
 </head>
@@ -168,7 +199,37 @@
         <button type="submit">Submit</button>
       </div>
     </form>
+      <%
+          if(request.getAttribute("info")!=null){
+      %>
+        <div id="myModal" class="modal">
+          <div class="modal-content">
+            <span class="close" onclick="closeModal()">&times;</span>
+            <p style="color: #4cae4c"><%=request.getAttribute("info")%></p>
+          </div>
+        </div>
+      <%
+          }
+      %>
   </div>
 </div>
+<script>
+  var modal = document.getElementById("myModal");
+
+  // Automatically display the modal if it exists
+  if (modal) {
+    modal.style.display = "block";
+  }
+  function closeModal() {
+    modal.style.display = "none";
+  }
+
+  window.onclick = function(event) {
+    if (event.target === modal) {
+      modal.style.display = "none";
+    }
+  }
+
+</script>
 </body>
 </html>

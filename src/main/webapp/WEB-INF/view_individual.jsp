@@ -6,7 +6,7 @@
   <title>Property Listings</title>
   <style>
     body {
-      background-color: #a783a6;
+      background-color: #272c39;
       font-family: 'Helvetica Neue', Arial, sans-serif;
       margin: 0;
       padding: 0;

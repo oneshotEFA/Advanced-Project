@@ -196,8 +196,11 @@
                     <p style="color: red"><%=request.getAttribute("error")%></p>
                 </div>
                 <%}%>
-
+                 <div class="forgot">
+                     <a style="color: white"  href="Forgot.jsp">Forgot Password?</a>
+                 </div>
             </form>
+
 
         </div>
     </div>

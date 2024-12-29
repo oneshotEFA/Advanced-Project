@@ -1,5 +1,6 @@
 package com.example.requesthandler;
 import com.example.Connector_Manupuletor.Manipuletor;
+import jakarta.servlet.RequestDispatcher;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.MultipartConfig;
 import jakarta.servlet.annotation.WebServlet;
@@ -33,9 +34,10 @@ public class SellRequest extends HttpServlet {
             String status =request.getParameter("status");
             String disc =request.getParameter("disc");
 
-            PrintWriter out = response.getWriter();
             Manipuletor.accept(Integer.parseInt(price),address,size,bed,bath,status,fis1,fis2,fis3,disc);
-            out.println("Request Sent to The Admin After the review it will be posted in the Web soon!!");
+            request.setAttribute("info","Request Sent to The Admin After the review it will be posted in the Web soon!!");
+            RequestDispatcher rd = request.getRequestDispatcher("Sell.jsp");
+            rd.forward(request, response);
         } catch (SQLException | IOException e) {
             throw new RuntimeException(e);
         }

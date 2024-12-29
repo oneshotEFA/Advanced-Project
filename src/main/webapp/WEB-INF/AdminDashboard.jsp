@@ -1,7 +1,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%
     if (session == null || session.getAttribute("isAdmin") == null) {
-        response.sendRedirect("AdminLogin.jsp");
+        response.sendRedirect("AdminLoginPage.jsp");
         return;
     }
 %>
@@ -17,6 +17,7 @@
             margin: 0;
             background-color: #f4f4f4;
             font-family: 'Arial', sans-serif;
+
         }
         .barr {
             position: absolute;
@@ -34,8 +35,8 @@
             top: 0;
             left: 0;
             overflow-x: hidden;
-            background-color: #a783a6;
-            padding-top: 60px;
+            background-color: #272c39;
+            padding-top: 100px;
             transition: width 0.4s ease;
         }
 
@@ -53,22 +54,21 @@
             background: #a783a6;
         }
         header {
-            background-color: #a783a6;
+            background-color: #272c39;
             color: white;
             padding: 15px;
             text-align: center;
             position: relative;
             z-index: 100;
         }
-
         .container {
             display: flex;
             flex-wrap: wrap;
             padding: 20px;
-            margin-left: 250px; /* Space for sidebar */
+            margin-left: 250px;
         }
         .card {
-            background: white;
+            background: #272c39;
             border-radius: 8px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
             margin: 15px;
@@ -81,6 +81,9 @@
 
         .card h2 {
             margin-top: 0;
+            color: #a783a6;
+        }
+        .card p{
             color: #a783a6;
         }
         .btn {
@@ -96,19 +99,56 @@
             background-color: #98dea3;
         }
         footer {
-            background-color: #a783a6;
+            background-color: #272c39;
             color: white;
             text-align: center;
             padding: 10px 0;
             position: relative;
             margin-top: 20px;
+            top:40px
+
         }
         footer a {
             color: #4CAF50;
             text-decoration: none;
+
         }
         footer a:hover {
             text-decoration: underline;
+        }
+        .feedback {
+            position: relative;
+            left: -80px;;
+            display: flex;
+            flex-wrap: wrap;
+            padding: 20px;
+            margin-left: 250px;
+            justify-content: center;
+        }
+        .c{
+            justify-items: center;
+            background: #272c39;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            margin: 15px;
+
+            max-width: 200px;
+            padding: 20px;
+            transition: transform 0.2s;
+        }
+        .m{
+            background:#a783a6;
+            color:  white;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background 0.3s;
+            font-size: 14px;
+            font-style: inherit;
+        }
+        .m:hover {
+            background: #4CAF50;
         }
     </style>
 </head>
@@ -120,8 +160,8 @@
     <h1>Welcome, Admin!</h1>
 </header>
 <div class="togg" id="togg">
-    <a href="#">Dashboard</a>
-    <a href="#">Services</a>
+    <a href="">Serves</a>
+    <a href="">Dashboard</a>
     <a href="#">Objective</a>
     <a href="manage">Setting</a>
     <a href="Login_handle">Logout</a>
@@ -156,17 +196,19 @@
         </form>
     </div>
 </div>
-
+<div class="feedback">
+    <div class="c">
+        <button class="m">Feedback from customers</button>
+    </div>
+</div>
 <footer>
     <p>&copy; 2024 Real Estate Broker <a href="#">About Us</a></p>
 </footer>
-
 <script>
     function toggleSidebar() {
         var sidebar = document.getElementById("togg");
         sidebar.style.width = sidebar.style.width === "150px" ? "0" : "150px";
     }
 </script>
-
 </body>
 </html>
