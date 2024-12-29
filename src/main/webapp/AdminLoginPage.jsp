@@ -6,12 +6,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Admin Login</title>
     <style>
-
         body{
             margin: -2px;
             background-image: url("image/login_2.jpg");
             background-size: cover;
-            animation: scaleUp ease-out  1s;
         }
         header{
             height: 50px;
@@ -33,11 +31,12 @@
             top: 5%;
             left: 0;
             overflow-x: hidden;
-            backdrop-filter:blur(10px);
+
+            backdrop-filter:blur(6px);
+
             padding-top: 60px;
             transition: ease-out 0.4s;
         }
-
         .togg a {
             margin-top: 20px;
             color: white;
@@ -66,7 +65,9 @@
             text-align: center;
             width: 45%;
             height: 500px;
-            backdrop-filter:blur(10px);
+
+            backdrop-filter:blur(6px);
+
             border-radius: 10%;
         }
         .login h2{
@@ -177,7 +178,7 @@
     <div class="login">
         <h2>Admin Login</h2>
         <div class="login-form">
-            <form action="Login_handle" method="get">
+            <form action="Login_handle" method="post">
                 <div class="email">
                     <input type="text" placeholder="Email" required name="username">
                 </div>
@@ -187,6 +188,15 @@
                 <div class="bt">
                     <button >Login</button>
                 </div>
+
+                <%
+                    if (request.getAttribute("error")!=null){
+                %>
+                <div>
+                    <p style="color: red"><%=request.getAttribute("error")%></p>
+                </div>
+                <%}%>
+
             </form>
 
         </div>
@@ -204,9 +214,7 @@
     <footer>
         <p>&copy; 2024 . All rights reserved. | Designed with eph</p>
         <p>Follow us on <a href="#">Facebook</a>, <a href="#">Twitter</a>, and <a href="#">Instagram</a></p>
-        <div class="im">
-            <img src="image/footer-art.svg" alt="">
-        </div>
+
     </footer>
 </footer>
 <script>

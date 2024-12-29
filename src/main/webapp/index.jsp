@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
     <link rel="stylesheet" href="styles.css">
+
 </head>
 <body>
 <main>
@@ -250,6 +251,7 @@
     <p class="header-subtitle">Your trusted partner in real estate, providing exceptional service and expertise to help you achieve your property goals.</p>
 </header>
 
+<<<<<<< HEAD
 <section class="about-section">
     <div class="about-container">
         <div class="about-image">
@@ -276,8 +278,6 @@
             </div>
         </div>
     </div>
-
-
     <header class="page-header">
         <h1>Contact Us</h1>
         <p class="header-subtitle">Get in touch with our expert team for all your real estate needs</p>
@@ -363,5 +363,8 @@
             nomodule
             src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"
     ></script>
+
+</section>
+
 </body>
 </html>

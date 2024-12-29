@@ -1,4 +1,4 @@
-package com.example.advanced_project.Connector_Manupuletor;
+package com.example.Connector_Manupuletor;
 
 import jakarta.servlet.annotation.WebServlet;
 
@@ -51,7 +51,23 @@ public class Manipuletor {
         cs = con.prepareStatement("select * from property where property_status='For Rent'");
         return cs.executeQuery();
     }
+    public static boolean changepass(String username,String current,String newpass) throws SQLException {
+        Connection con = Dbconnector.connect();
+        String admin_password = "";
+        String sql = "select admin_password from admin where admin_username='"+username+"'";
+        String sqlupdate="update admin set admin_password='"+newpass+"' where admin_username='"+username+"'";
+        Statement st = con.createStatement();
+        PreparedStatement ps = con.prepareStatement(sqlupdate);
 
+        ResultSet rs = st.executeQuery(sql);
+        while(rs.next()){
+            admin_password= rs.getString("admin_password");
+        }
+        if(current.equals(admin_password)){
+            return ps.executeUpdate() >= 1;
+        }
+        return false;
+    }
     public static boolean Autentication(String user, String pass) throws SQLException {
         Connection con = Dbconnector.connect();
         String password = "";
@@ -92,11 +108,14 @@ public class Manipuletor {
                 "SELECT proprety_price, property_address, property_size, bedroom_number, bathroom_number, " +
                 "property_status, property_image1, property_image2, property_image3, proprerty_description " +
                 "FROM property_accept WHERE propertyID = ?";
-
         PreparedStatement cs = con.prepareStatement(sql);
       cs.setInt(1,id);
       cs.execute();
       cs.close();
+      String sql1="delete from property_accept where propertyID = ?";
+      PreparedStatement cs1 = con.prepareStatement(sql1);
+      cs1.setInt(1,id);
+      cs1.execute();
       con.close();
     }
     public static ResultSet Filter(String address) throws SQLException {
@@ -105,4 +124,23 @@ public class Manipuletor {
         PreparedStatement st = con.prepareStatement(sql);
         return st.executeQuery(sql);
     }
+    public static ResultSet showbyid(int id) throws SQLException {
+        String sql = "select * from property where propertyID=?";
+        Connection con = Dbconnector.connect();
+        PreparedStatement st = con.prepareStatement(sql);
+        st.setInt(1,id);
+        return st.executeQuery();
+    }
+    public static void chnageusername(String user,String olduser) throws SQLException {
+        Connection con = Dbconnector.connect();
+        String sql="update Admin set admin_username='"+user+"' where admin_username='"+olduser+"'";
+        PreparedStatement ps = con.prepareStatement(sql);
+        ps.execute();
+        con.close();
+    }
+
+    public static void main(String[] args) throws SQLException {
+        chnageusername("ephi","ephrem");
+    }
 }
+

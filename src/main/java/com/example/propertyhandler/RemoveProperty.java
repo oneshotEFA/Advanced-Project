@@ -1,31 +1,23 @@
-package com.example.advanced_project;
+package com.example.propertyhandler;
 
-import com.example.advanced_project.Connector_Manupuletor.Dbconnector;
-import com.example.advanced_project.Connector_Manupuletor.Manipuletor;
+import com.example.Connector_Manupuletor.Manipuletor;
 import jakarta.servlet.RequestDispatcher;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
-
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-@WebServlet("/approve")
-public class ApproveProperties extends HttpServlet {
+@WebServlet("/remove")
+public class RemoveProperty extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response){
-        Connection con = null;
         try {
-            con = Dbconnector.connect();
-            PreparedStatement cs = null;
-            cs = con.prepareStatement("select * from property_accept");
-            ResultSet rs = cs.executeQuery();
-            request.setAttribute("property_accept", rs);
-            RequestDispatcher rd = getServletContext().getRequestDispatcher("/WEB-INF/Approving.jsp");
+            ResultSet rs= Manipuletor.all_pro();
+            request.setAttribute("pro",rs);
+            RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/Removing.jsp");
             rd.forward(request,response);
         } catch (SQLException | ServletException | IOException e) {
             throw new RuntimeException(e);
@@ -35,8 +27,8 @@ public class ApproveProperties extends HttpServlet {
         int id = Integer.parseInt(request.getParameter("id"));
         try {
             PrintWriter out = response.getWriter();
-            Manipuletor.approve(id);
-            out.println("Approved successfully");
+            Manipuletor.remove_property(id);
+            out.println("Removed!!");
         } catch (SQLException | IOException e) {
             throw new RuntimeException(e);
         }
