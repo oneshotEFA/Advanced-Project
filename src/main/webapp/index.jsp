@@ -31,11 +31,7 @@
             </svg>
         </div>
         <ul>
-<<<<<<< HEAD
             <li><a href="AdminLoginPage.jsp">Admin</a></li>
-=======
-            <li><a href="#">Admin</a></li>
->>>>>>> 310779eed2be0bd88f2d66b86bfa004975667245
             <li><a href="#Oservice">Service</a></li>
             <li><a href="#Ocompany">About</a></li>
             <li><a href="#Cpage">Contact</a></li>
@@ -198,11 +194,7 @@
     </section>
 </main>
 
-<<<<<<< HEAD
 
-=======
-<!-- our service section  -->
->>>>>>> 310779eed2be0bd88f2d66b86bfa004975667245
 <div class="container" id="Oservice">
     <h1 class="services-header">Our Services</h1>
     <div class="cards">
@@ -218,11 +210,7 @@
                 Discover a variety of properties and choose the perfect one that
                 suits your lifestyle and budget.
             </p>
-<<<<<<< HEAD
             <button><a href="view_buy">Browse homes</a></button>
-=======
-            <button><a href="buy.html">Browse homes</a></button>
->>>>>>> 310779eed2be0bd88f2d66b86bfa004975667245
         </div>
 
         <div class="card">
@@ -237,11 +225,7 @@
                 Rent out your property hassle-free and find reliable tenants who
                 meet your expectations.
             </p>
-<<<<<<< HEAD
             <button><a href="view_rent">Find rentals</a></button>
-=======
-            <button><a href="rent.html">Find rentals</a></button>
->>>>>>> 310779eed2be0bd88f2d66b86bfa004975667245
         </div>
 
         <div class="card">
@@ -260,21 +244,12 @@
     </div>
 </div>
 
-<<<<<<< HEAD
-=======
-
-
->>>>>>> 310779eed2be0bd88f2d66b86bfa004975667245
 <header class="page-header" id="Ocompany">
     <h1>About Our Company</h1>
     <p class="header-subtitle">Your trusted partner in real estate, providing exceptional service and expertise to help you achieve your property goals.</p>
 </header>
 
-<<<<<<< HEAD
 
-=======
-<<<<<<< HEAD
->>>>>>> 310779eed2be0bd88f2d66b86bfa004975667245
 <section class="about-section">
     <div class="about-container">
         <div class="about-image">
@@ -358,37 +333,6 @@
             </form>
         </div>
     </section>
-<<<<<<< HEAD
-
-
-    <script type="text/javascript">
-        const menu = document.querySelector(".menu");
-        const tog = document.querySelector(".tog");
-        menu.addEventListener("click", () => {
-            tog.classList.toggle("active");
-        });
-
-        const close = document.querySelector(".close");
-        close.addEventListener("click", () => {
-            tog.classList.remove("active");
-        });
-        document.addEventListener("click", (event) => {
-            if (!tog.contains(event.target) && !menu.contains(event.target)) {
-                tog.classList.remove("active");
-            }
-        });
-    </script>
-    <script
-            type="module"
-            src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"
-    ></script>
-    <script
-            nomodule
-            src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"
-    ></script>
-
-</section>
-=======
 
 
     <script type="text/javascript">
@@ -419,7 +363,5 @@
     ></script>
 
 </section>
-
->>>>>>> 310779eed2be0bd88f2d66b86bfa004975667245
 </body>
 </html>
