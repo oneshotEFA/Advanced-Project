@@ -5,13 +5,199 @@
 <head>
     <title>Title</title>
     <style>
-        body{
+        html {
+            scroll-behavior: smooth;
+        }
+        body {
+            font-family: "Poppins", sans-serif;
+            background-color: rgb(17, 24, 39);
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 8px auto;
+            width: 100%;
+        }
+        header {
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+            padding: 1rem;
+            background-color: #111827;
+            color: white;
+            border-bottom: 1px solid #374151;
+        }
+        .search-bar {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        .search-bar input[type="text"] {
+            padding: 0.5rem;
+            border: 1px solid #374151;
+            border-radius: 4px;
+            width: 250px;
+            background-color: #1e293b;
+            color: white;
+        }
+        .search-bar input[type="text"]::placeholder {
+            color: #94a3b8;
+        }
+        .search-bar button {
+            background-color: #1d4ed8;
+            border: none;
+            padding: 0.5rem 1rem;
+            border-radius: 4px;
+            color: white;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        .search-bar button:hover {
+            background-color: #2563eb;
+        }
+        .services-header {
+            text-align: center;
+            font-size: 2.5rem;
+            margin: 2rem 0 1rem;
+            color: white;
+            font-weight: bold;
+        }
+        .cards {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1.5rem;
+            padding: 1rem;
+        }
+        .card {
+            cursor: pointer;
+            max-width: 280px;
+            width: 100%;
+            background-color: #1e293b;
+            border-radius: 1rem;
+            padding: 1.5rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            transition: transform 0.3s ease;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+        .card:hover {
+            transform: scale(1.05);
+        }
+        .image-container {
+            width: 100%;
+            height: 200px;
+            border-radius: 0.75rem;
+            overflow: hidden;
+            position: relative;
+            margin-bottom: 1rem;
+        }
+        .image-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        .Service-h2 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            font-weight: bold;
+            color: white;
+        }
+        .ps {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 8px;
+            margin: 1rem 0;
+            color: #94a3b8;
+            text-align: left;
+            width: 100%;
+        }
+        .ps p {
+            margin: 0;
+        }
+        .card button {
+            background-color: #1d4ed8;
+            border: none;
+            padding: 8px 16px;
+            border-radius: 16px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            width: 150px;
+        }
+        .card button a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+        }
+        .card button:hover {
+            background-color: #2563eb;
+        }
 
-            background-color: rgb(47, 58, 55);
+        .footer {
+            background-color: #111827;
+            color: white;
+            padding: 2rem 1rem;
+            margin-top: 2rem;
+        }
+        .footer-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .footer-section {
+            text-align: left;
+        }
+        .footer-section h3 {
+            font-size: 1.25rem;
+            margin-bottom: 1rem;
+            color: #1d4ed8;
+        }
+        .footer-section p,
+        .footer-section ul {
+            font-size: 0.9rem;
+            line-height: 1.5;
+        }
+        .footer-section ul {
+            list-style: none;
+            padding: 0;
+        }
+        .footer-section ul li {
+            margin-bottom: 0.5rem;
+        }
+        .footer-section ul li a {
+            text-decoration: none;
+            color: #94a3b8;
+            transition: color 0.3s;
+        }
+        .footer-section ul li a:hover {
+            color: #1d4ed8;
+        }
+        .social-icons a {
+            display: inline-block;
+            margin-right: 0.5rem;
+        }
+        .social-icons img {
+            width: 24px;
+            height: 24px;
+            transition: opacity 0.3s;
+        }
+        .social-icons img:hover {
+            opacity: 0.8;
+        }
+        .footer-bottom {
+            text-align: center;
+            margin-top: 2rem;
+            font-size: 0.8rem;
+            border-top: 1px solid #374151;
+            padding-top: 1rem;
+            color: #94a3b8;
         }
         .barr {
-
-
+            color: #fff;
             position: absolute;
             top: 20px;
             z-index: 100;
@@ -46,143 +232,6 @@
         .togg a:hover {
             transform: scale(1.05);
         }
-        .bx{
-            text-align: center;
-            height: 170px;
-            width: 300px;
-            border-radius: 10px;
-            display:block;
-            overflow: hidden;
-            border: none;
-            margin-top: 30px;
-        }
-        .container{
-            gap: 10px;
-            width: 100%;
-            display:flex;
-            flex-wrap: wrap;
-        }
-        .att {
-            border-radius: 5px;
-            position: relative;
-            top: 0;
-            width: 300px;
-            height: 60px;
-            display: flex;
-            flex-wrap: wrap;
-            border: none;
-            overflow: hidden;
-            padding: 0px;
-            box-sizing: border-box;
-        }
-        .att h4 {
-            color: white;
-            margin: 0;
-            width: 100%;
-        }
-        .att p {
-            color: white;
-            margin: 0;
-            font-size: 13px;
-            flex-shrink: 0;
-            white-space: nowrap;
-        }
-        .bx img{
-            width: 300px;
-            height: 170px;
-            object-fit: cover;
-
-        }
-        .conn{
-            cursor: pointer;
-            backdrop-filter: blur(8px);
-            transition: transform 0.3s;
-            transform-style: preserve-3d;
-            border: none;
-        }
-        .conn:hover{
-            border-radius: 10%;
-            border: solid 2px white;
-            transform: scale(1.065);
-        }
-        footer {
-            background-color: black;
-            position: relative;
-            height: auto;
-            color: rgb(252, 250, 250);
-            padding: 0px;
-            text-align: center;
-            margin-bottom: 0;
-        }
-        footer a {
-            color: #e5e6e5;
-            text-decoration: none;
-            margin: 0 ;
-            font-size: 1rem;
-            transition: color 0.3s;
-        }
-        footer .im{
-            bottom: 0;
-            padding-bottom: 0px;
-            opacity: 0.6;
-        }
-        footer a:hover {
-            color: #ebf3eb;
-        }
-        header{
-            background-image: url("image/buildings-7848348.jpg");
-            background-size: cover;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            min-height: 70vh;
-        }
-        header h2{
-            font-style: italic;
-            position: absolute;
-            color: white ;
-            top: 0;
-            left: 40%;
-        }
-        .info{
-            position: relative;
-            display: flex;
-            justify-content: center;
-            color: white;
-        }
-        .gall {
-            height: 145px;
-            width: 70px;
-            position: relative;
-            transform-style: preserve-3d;
-            transform: perspective(2000px);
-            animation: gallary 20s linear infinite;
-            cursor: pointer;
-        }
-
-        .gall span {
-            position: absolute;
-            width: 100%;
-            height: 100%;
-            transform-style: preserve-3d;
-            transform: rotateY(calc(var(--i)*45deg)) translatez(250px); /* Reduced depth effect */
-        }
-        .gall span img {
-            height: 120px;
-            width: 70px;
-            object-fit: cover;
-            position: absolute;
-            border-radius: 10px;
-            border: 6px ridge #ccc;
-        }
-        @keyframes gallary {
-            0% {
-                transform: perspective(2000px) rotateY(0deg);
-            }
-            100% {
-                transform: perspective(2000px) rotateY(360deg);
-            }
-        }
 
         @keyframes scaleUp {
             0% {
@@ -198,72 +247,50 @@
                 opacity: 1;
             }
         }
-        .filter{
-            display: flex;
-            width: 400px;
-            position: absolute;
-            top:370px;
-            right: 500px;
-            text-align: center;
-        }
-        .filter button{
-            color: white;
-            border: none;
-            background: transparent;
-            width: 35%;
-            cursor: pointer;
-            border-radius: 10%;
-            transition: background-color 0.5s;
-        }
-        .filter button:hover{
-            background-color: rgb(221, 211, 211);
-        }
-        .filter input:hover{
-            background-color: rgb(221, 211, 211);
-        }
-        .filter input{
-            width: 65%;
-            height: 30px;
-            border: solid 1px white;
-            border-radius: 7px;
-            transition: background-color 0.5s;
-            outline: none;
-            background: transparent;
-        }
-
     </style>
 </head>
 <body>
-<header>
-    <div class="barr" onclick="togle()">
-        <p>&#9776;</p>
+    <header>
+        <div class="barr" onclick="togle()">
+            <p>&#9776;</p>
+        </div>
+        <div class="search-bar">
+            <form action="search" method="post">
+                <input type="text" placeholder="Search properties..." name="address"/>
+                <button>Search</button>
+            </form>
+        </div>
+    </header>
+    <%
+        if(session.getAttribute("isAdmin")!=null){
+    %>
+    <div class="togg" id="togg">
+        <a href="redirect">Dashboard</a>
+        <a href="#about">Objective</a>
+        <a href="manage">Setting</a>
+        <a href="Login_handle">Logout</a>
     </div>
-    <div class="filter">
-        <form action="search" method="post">
-            <input type="search" placeholder="address.." name="address">
-            <button id="searchButton">Search</button>
-        </form>
+    <%
+        }
+        else
+    %>
+    <div class="togg" id="togg">
+    <a href="index.jsp">Home</a>
+    <a href="index.jsp">Services</a>
+    <a href="#about">About Us</a>
+    <a href="#about">Contact Us</a>
     </div>
-    <h2>Avilable Propertiess</h2>
 
-</header>
-<div class="togg" id="togg">
-<a href="index.jsp">Home</a>
-<a href="#">Services</a>
-<a href="#">About Us</a>
-<a href="#">Contact Us</a>
-</div>
-<div class="info">
-<h3>The following are available properties which you can buy and rent and there detail information is writtin at the buttom of their picture</h3>
-</div>
-<form id="myForm" method="get" action="view_individual">
-    <input id="id"  name="id" type="hidden" >
-</form>
-<div class="container">
+    <form id="myForm" method="get" action="view_individual">
+        <input id="id"  name="id" type="hidden" >
+    </form>
+    <div class="container">
+        <h1 class="services-header">Available Properties</h1>
+        <div class="cards">
 <%
     int id = 0,size = 0,bedroom=0,bathroom=0,price=0;
-    String address = null,description = null,status = null;
-    byte[] image1 = new byte[0],image2=new byte[0],image3=new byte[0];
+    String address = null,status = null;
+    byte[] image1 = new byte[0];
     ResultSet rs=null;
     if(request.getAttribute("Data_filter")!=null){
         rs = (ResultSet) request.getAttribute("Data_filter");
@@ -281,39 +308,67 @@
             bathroom = rs.getInt(6);
             status = rs.getString(7);
             image1 = rs.getBytes(8);
-            image2 = rs.getBytes(9);
-            image3 = rs.getBytes(10);
-            description = rs.getString(11);
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
     String data1 = java.util.Base64.getEncoder().encodeToString(image1);
     String path1 = "data:image/jpeg;base64,"+data1;
 %>`
-        <div class="conn" onclick="submitForm(<%=id%>)">
-            <div class="bx">
-                <img id="img1" src="<%=path1%>" alt="">
+        <div class="card" onclick="submitForm(<%=id%>)">
+            <div class="image-container">
+                <img src="<%=path1%>" alt="House"/>
             </div>
-            <div class="att">
-                <h4><%=price%>$</h4>
-                <p><%=bedroom%> bd  |</p>
-                <p>|<%=bathroom%> ba |</p>
-                <p>| <%=status%>> |</p>
-                <p>| <%=address%>, Ethiopia |</p>
-                <p>| <%=size%>sq </p>
+            <h2 class="Service-h2"><%=price%>$</h2>
+            <div class="ps">
+                <p><strong>Property:</strong> <%=status%> </p>
+                <p><strong>Bedroom:</strong><%=bedroom%></p>
+                <p><strong>Address:</strong> <%=address%>, Ethiopia</p>
+                <p><strong>Size:</strong> <%=size%>sq </p>
+                <p><strong>Bathroom:</strong><%=bathroom%></p>
             </div>
-
+            <button><a href="#">Buy</a></button>
         </div>
 <%}%>
-</div>
-<footer>
-<footer>
-    <p>&copy; 2024 . All rights reserved. | Designed with eph</p>
-    <p>Follow us on <a href="#">Facebook</a>, <a href="#">Twitter</a>, and <a href="#">Instagram</a></p>
-    <div class="im">
-
     </div>
-</footer>
+</div>
+<footer class="footer" id="about">
+    <div class="footer-container">
+
+        <div class="footer-section">
+            <h3>About Us</h3>
+            <p>
+                We provide a seamless way to search for properties that suit your needs.
+                Discover your dream home or investment property with us.
+            </p>
+        </div>
+        <div class="footer-section">
+            <h3>Quick Links</h3>
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#properties">Properties</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </div>
+        <div class="footer-section">
+            <h3>Contact Us</h3>
+            <p><strong>Email:</strong> info@propertyfinder.com</p>
+            <p><strong>Phone:</strong> +251 985 094 082</p>
+            <p><strong>Address:</strong> 123 Main Street, New York, NY</p>
+        </div>
+        <div class="footer-section">
+            <h3>Follow Us</h3>
+            <div class="social-icons">
+                <a href="#"><img src="https://img.icons8.com/material-outlined/24/ffffff/facebook--v1.png" alt="Facebook"></a>
+                <a href="#"><img src="https://img.icons8.com/material-outlined/24/ffffff/twitter--v1.png" alt="Twitter"></a>
+                <a href="#"><img src="https://img.icons8.com/material-outlined/24/ffffff/instagram-new.png" alt="Instagram"></a>
+                <a href="#"><img src="https://img.icons8.com/material-outlined/24/ffffff/linkedin.png" alt="LinkedIn"></a>
+            </div>
+        </div>
+    </div>
+    <div class="footer-bottom">
+        <p>&copy; 2024 Effortless Property. All Rights Reserved.</p>
+    </div>
 </footer>
 <script>
 function togle() {

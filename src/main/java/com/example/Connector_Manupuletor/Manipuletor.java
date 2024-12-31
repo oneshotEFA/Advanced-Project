@@ -1,17 +1,12 @@
 package com.example.Connector_Manupuletor;
-
-
 import java.io.FileInputStream;
 import java.sql.*;
 import java.util.Random;
 
 public class Manipuletor {
     public static void add_property(int price, String address, int size, int bedroom, int bathroom, String status, FileInputStream img1, FileInputStream img2, FileInputStream img3, String des) throws SQLException {
-       Connection con = Dbconnector.connect();
-       String sql="insert into property ( proprety_price, property_address, property_size, bedroom_number, bathroom_number,\n" +
-               "                       property_status, property_image1, property_image2, property_image3, proprerty_description)\n" +
-               "values(?,?,?,?,?,?,?,?,?,?)";
-        PreparedStatement cs = con.prepareStatement(sql);
+        Connection con = Dbconnector.connect();
+        CallableStatement cs = con.prepareCall("{call add_pro(?,?,?,?,?,?,?,?,?,?)}");
         cs.setInt(1,price);
         cs.setString(2,address);
         cs.setInt(3,size);
@@ -56,9 +51,9 @@ public class Manipuletor {
         Connection con = Dbconnector.connect();
         String admin_password = "";
         String sql = "select admin_password from admin where admin_username='"+username+"'";
-        String sqlupdate="update admin set admin_password='"+newpass+"' where admin_username='"+username+"'";
+        String sql_update="update admin set admin_password='"+newpass+"' where admin_username='"+username+"'";
         Statement st = con.createStatement();
-        PreparedStatement ps = con.prepareStatement(sqlupdate);
+        PreparedStatement ps = con.prepareStatement(sql_update);
 
         ResultSet rs = st.executeQuery(sql);
         while(rs.next()){
@@ -84,10 +79,7 @@ public class Manipuletor {
     }
     public static void accept(int price, String address, int size, int bedroom, int bathroom, String status, FileInputStream img1, FileInputStream img2, FileInputStream img3, String des) throws SQLException {
         Connection con = Dbconnector.connect();
-        String sql="insert into property_accept ( proprety_price, property_address, property_size, bedroom_number, bathroom_number,\n" +
-                "                       property_status, property_image1, property_image2, property_image3, proprerty_description)\n" +
-                "values(?,?,?,?,?,?,?,?,?,?)";
-        PreparedStatement cs = con.prepareStatement(sql);
+        CallableStatement cs = con.prepareCall("{call accept_pro(?,?,?,?,?,?,?,?,?,?)}");
         cs.setInt(1,price);
         cs.setString(2,address);
         cs.setInt(3,size);
@@ -103,13 +95,8 @@ public class Manipuletor {
         con.close();
     }
     public static void approve(int id) throws SQLException {
-        Connection con = Dbconnector.connect();
-        String sql = "INSERT INTO property (proprety_price, property_address, property_size, bedroom_number, bathroom_number, " +
-                "property_status, property_image1, property_image2, property_image3, proprerty_description) " +
-                "SELECT proprety_price, property_address, property_size, bedroom_number, bathroom_number, " +
-                "property_status, property_image1, property_image2, property_image3, proprerty_description " +
-                "FROM property_accept WHERE propertyID = ?";
-        PreparedStatement cs = con.prepareStatement(sql);
+      Connection con = Dbconnector.connect();
+      CallableStatement cs = con.prepareCall("{call Copy_pro(?)}");
       cs.setInt(1,id);
       cs.execute();
       cs.close();
@@ -141,7 +128,7 @@ public class Manipuletor {
     }
     public static void storefeedback(String name,String email,int phone,String sub ,String msg) throws SQLException {
         Connection con = Dbconnector.connect();
-        CallableStatement cs = con.prepareCall("{call storefeedback(?,?,?,?.?)}");
+        CallableStatement cs = con.prepareCall("{call storefeedback(?,?,?,?,?)}");
         cs.setString(1,name);
         cs.setString(2,email);
         cs.setInt(3,phone);
@@ -150,8 +137,11 @@ public class Manipuletor {
         cs.execute();
         con.close();
     }
-    public static void readfeedback(){
-
+    public static ResultSet readfeedback() throws SQLException {
+      Connection con =Dbconnector.connect();
+      Statement st = con.createStatement();
+      String sql="select * from feedback";
+      return st.executeQuery(sql);
     }
     public static boolean adminexist(String email) throws SQLException {
         Connection con = Dbconnector.connect();
@@ -175,7 +165,7 @@ public class Manipuletor {
     public static String verficationGenerater(){
         String[] key = {"q4xlu1", "l2sud0", "oq7n2v", "dfqp12", "lkxr40", "5bdzmw", "opsd38"};
         Random random = new Random();
-        int key_num = random.nextInt(100);
+        int key_num = random.nextInt(1000);
         int randomIndex = random.nextInt(key.length);
         return key[randomIndex]+key_num;
     }

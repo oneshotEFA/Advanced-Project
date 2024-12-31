@@ -23,14 +23,19 @@ public class RemoveProperty extends HttpServlet {
             throw new RuntimeException(e);
         }
     }
-    protected void doPost(HttpServletRequest request, HttpServletResponse response){
+    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         int id = Integer.parseInt(request.getParameter("id"));
         try {
-            PrintWriter out = response.getWriter();
             Manipuletor.remove_property(id);
-            out.println("Removed!!");
-        } catch (SQLException | IOException e) {
-            throw new RuntimeException(e);
+            ResultSet rs= Manipuletor.all_pro();
+            request.setAttribute("pro",rs);
+            request.setAttribute("message","Property Removed Successfully");
+        } catch (SQLException e) {
+            request.setAttribute("message","Error while removing the property");
+        }
+        finally {
+            RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/Removing.jsp");
+            rd.forward(request,response);
         }
     }
 }

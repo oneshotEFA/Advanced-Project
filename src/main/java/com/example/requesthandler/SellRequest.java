@@ -33,7 +33,6 @@ public class SellRequest extends HttpServlet {
             int bath =Integer.parseInt(request.getParameter("bath"));
             String status =request.getParameter("status");
             String disc =request.getParameter("disc");
-
             Manipuletor.accept(Integer.parseInt(price),address,size,bed,bath,status,fis1,fis2,fis3,disc);
             request.setAttribute("info","Request Sent to The Admin After the review it will be posted in the Web soon!!");
             RequestDispatcher rd = request.getRequestDispatcher("Sell.jsp");

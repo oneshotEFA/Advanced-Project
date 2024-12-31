@@ -15,6 +15,9 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+
+
+
 @WebServlet("/approve")
 public class ApproveProperties extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response){
@@ -31,14 +34,25 @@ public class ApproveProperties extends HttpServlet {
             throw new RuntimeException(e);
         }
     }
-    protected void doPost(HttpServletRequest request, HttpServletResponse response){
+    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         int id = Integer.parseInt(request.getParameter("id"));
+        Connection con = null;
         try {
-            PrintWriter out = response.getWriter();
+            con = Dbconnector.connect();
+            PreparedStatement cs = null;
+            cs = con.prepareStatement("select * from property_accept");
+            ResultSet rs = cs.executeQuery();
+            request.setAttribute("property_accept", rs);
+
             Manipuletor.approve(id);
-            out.println("Approved successfully");
-        } catch (SQLException | IOException e) {
-            throw new RuntimeException(e);
+            request.setAttribute("message", "Approved to Web successfully");
+        } catch (SQLException e) {
+            request.setAttribute("message_error", "Database error occurred while approving.");
+        } catch (Exception e) {
+            request.setAttribute("message_error", "An error occurred during approval.");
         }
+        RequestDispatcher rd = getServletContext().getRequestDispatcher("/WEB-INF/Approving.jsp");
+        rd.forward(request, response);
+
     }
 }

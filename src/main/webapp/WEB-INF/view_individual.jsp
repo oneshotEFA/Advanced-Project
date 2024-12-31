@@ -11,26 +11,7 @@
       margin: 0;
       padding: 0;
     }
-    .navbar {
-      position: absolute;
-      top: 20px;
-      left: 20px;
-      font-size: 25px;
-      cursor: pointer;
-      color: #333;
-    }
-    .menu {
-      height: 60%;
-      width: 0;
-      position: fixed;
-      z-index: 99;
-      top: 5%;
-      left: 0;
-      overflow-x: hidden;
-      backdrop-filter: blur(10px);
-      padding-top: 60px;
-      transition: ease-out 0.4s;
-    }
+
     .slider img{
       object-fit: cover;
     }
@@ -112,18 +93,140 @@
     .prev {
       left: 10px;
     }
+    .footer {
+      background-color: #111827;
+      color: white;
+      padding: 2rem 1rem;
+      margin-top: 2rem;
+    }
+    .footer-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 2rem;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    .footer-section {
+      text-align: left;
+    }
+    .footer-section h3 {
+      font-size: 1.25rem;
+      margin-bottom: 1rem;
+      color: #1d4ed8;
+    }
+    .footer-section p,
+    .footer-section ul {
+      font-size: 0.9rem;
+      line-height: 1.5;
+    }
+    .footer-section ul {
+      list-style: none;
+      padding: 0;
+    }
+    .footer-section ul li {
+      margin-bottom: 0.5rem;
+    }
+    .footer-section ul li a {
+      text-decoration: none;
+      color: #94a3b8;
+      transition: color 0.3s;
+    }
+    .footer-section ul li a:hover {
+      color: #1d4ed8;
+    }
+    .social-icons a {
+      display: inline-block;
+      margin-right: 0.5rem;
+    }
+    .social-icons img {
+      width: 24px;
+      height: 24px;
+      transition: opacity 0.3s;
+    }
+    .social-icons img:hover {
+      opacity: 0.8;
+    }
+    header {
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+      padding: 1rem;
+      background-color: #111827;
+      color: white;
+      border-bottom: 1px solid #374151;
+    }
+    .footer-bottom {
+      text-align: center;
+      margin-top: 2rem;
+      font-size: 0.8rem;
+      border-top: 1px solid #374151;
+      padding-top: 1rem;
+      color: #94a3b8;
+    }
+    .barr {
+      color: #fff;
+      position: absolute;
+      top: 20px;
+      z-index: 100;
+      left: 20px;
+      font-size: 25px;
+      cursor: pointer;
+    }
+    .togg {
+      height: 60%;
+      width: 0;
+      position: fixed;
+      z-index: 99;
+      top: 5%;
+      left: 0;
+      overflow-x: hidden;
+      backdrop-filter:blur(10px);
+      padding-top: 60px;
+      transition: ease-out 0.4s;
+    }
+    .togg a {
+      margin-top: 20px;
+      color: white;
+      padding: 10px 20px;
+      text-decoration: none;
+      font-size: 20px;
+      display: block;
+      border-color: #333;
+      border-radius: 5px;
+      transition: transform 0.3s;
+    }
+
+    .togg a:hover {
+      transform: scale(1.05);
+    }
   </style>
 </head>
 <body>
-<div class="navbar" onclick="toggleMenu()">
-  <p>&#9776;</p>
+<header>
+  <div class="barr" onclick="togle()">
+    <p>&#9776;</p>
+  </div>
+</header>
+<%
+  if(session.getAttribute("isAdmin")!=null){
+%>
+<div class="togg" id="togg">
+  <a href="redirect">Dashboard</a>
+  <a href="#about">Objective</a>
+  <a href="manage">Setting</a>
+  <a href="Login_handle">Logout</a>
 </div>
-<div class="menu" id="menu">
+<%
+}
+else{
+%>
+<div class="togg" id="togg">
   <a href="index.jsp">Home</a>
-  <a href="#">Services</a>
-  <a href="#">About Us</a>
-  <a href="#">Contact Us</a>
+  <a href="index.jsp">Services</a>
+  <a href="#about">About Us</a>
+  <a href="#about">Contact Us</a>
 </div>
+<%}%>
 <div class="container">
   <%
     int id = 0, size = 0, bedroom = 0, bathroom = 0, price = 0;
@@ -179,6 +282,44 @@
     }
   %>
 </div>
+<footer class="footer" id="about">
+  <div class="footer-container">
+
+    <div class="footer-section">
+      <h3>About Us</h3>
+      <p>
+        We provide a seamless way to search for properties that suit your needs.
+        Discover your dream home or investment property with us.
+      </p>
+    </div>
+    <div class="footer-section">
+      <h3>Quick Links</h3>
+      <ul>
+        <li><a href="index.jsp">Home</a></li>
+        <li><a href="index.jsp">Properties</a></li>
+        <li><a href="view_buy">Services</a></li>
+        <li><a href="index.jsp">Contact</a></li>
+      </ul>
+    </div>
+    <div class="footer-section">
+      <h3>Contact Us</h3>
+      <p><strong>Email:</strong> info@propertyfinder.com</p>
+      <p><strong>Phone:</strong> +251 985 094 082</p>
+      <p><strong>Address:</strong> 123 Main Street, New York, NY</p>
+    </div>
+    <div class="footer-section">
+      <h3>Follow Us</h3>
+      <div class="social-icons">
+        <a href="#"><img src="https://img.icons8.com/material-outlined/24/ffffff/facebook--v1.png" alt="Facebook"></a>
+        <a href="#"><img src="https://img.icons8.com/material-outlined/24/ffffff/twitter--v1.png" alt="Twitter"></a>
+        <a href="#"><img src="https://img.icons8.com/material-outlined/24/ffffff/instagram-new.png" alt="Instagram"></a>
+        <a href="#"><img src="https://img.icons8.com/material-outlined/24/ffffff/linkedin.png" alt="LinkedIn"></a>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>&copy; 2024 Effortless Property. All Rights Reserved.</p>
+  </div>
 
 <script>
   let slideIndex = 0;
@@ -197,14 +338,9 @@
     }
     slides[slideIndex].classList.add('active');
   }
-
-  function toggleMenu() {
-    const menu = document.getElementById('menu');
-    if (menu.style.width === '250px') {
-      menu.style.width = '0';
-    } else {
-      menu.style.width = '250px';
-    }
+  function togle() {
+    var m = document.getElementById("togg");
+    m.style.width = m.style.width === "150px" ? "0" : "150px";
   }
   changeSlide(0);
 </script>

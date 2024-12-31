@@ -15,9 +15,8 @@
     <style>
         body {
             margin: 0;
-            background-color: #f4f4f4;
+            background-color: #1e293b;
             font-family: 'Arial', sans-serif;
-
         }
         .barr {
             position: absolute;
@@ -48,13 +47,12 @@
             display: block;
             transition: background 0.3s, transform 0.3s;
         }
-
         .togg a:hover {
             transform: scale(1.05);
-            background: #a783a6;
+            background: #2563eb;
         }
         header {
-            background-color: #272c39;
+            border-bottom: 2px solid #ccc;
             color: white;
             padding: 15px;
             text-align: center;
@@ -68,9 +66,9 @@
             margin-left: 250px;
         }
         .card {
-            background: #272c39;
+            background: rgba(59, 130, 246, 0.1);
             border-radius: 8px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 4px 8px rgba(109, 243, 206, 0.1);
             margin: 15px;
             flex: 1;
             min-width: 300px;
@@ -81,13 +79,13 @@
 
         .card h2 {
             margin-top: 0;
-            color: #a783a6;
+            color: #fff;
         }
         .card p{
-            color: #a783a6;
+            color: #fff;
         }
         .btn {
-            background-color: #a783a6;
+            background-color: #2563eb;
             color: white;
             padding: 10px 15px;
             border: none;
@@ -96,25 +94,68 @@
             transition: background 0.3s;
         }
         .btn:hover {
-            background-color: #98dea3;
+            background-color: #2563eb;
         }
-        footer {
-            background-color: #272c39;
+        .footer {
+            background-color: #111827;
             color: white;
-            text-align: center;
-            padding: 10px 0;
-            position: relative;
-            margin-top: 20px;
-            top:40px
-
+            padding: 2rem 1rem;
+            margin-top: 2rem;
         }
-        footer a {
-            color: #4CAF50;
+        .footer-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .footer-section {
+            text-align: left;
+        }
+        .footer-section h3 {
+            font-size: 1.25rem;
+            margin-bottom: 1rem;
+            color: #1d4ed8;
+        }
+        .footer-section p,
+        .footer-section ul {
+            font-size: 0.9rem;
+            line-height: 1.5;
+        }
+        .footer-section ul {
+            list-style: none;
+            padding: 0;
+        }
+        .footer-section ul li {
+            margin-bottom: 0.5rem;
+        }
+        .footer-section ul li a {
             text-decoration: none;
-
+            color: #94a3b8;
+            transition: color 0.3s;
         }
-        footer a:hover {
-            text-decoration: underline;
+        .footer-section ul li a:hover {
+            color: #1d4ed8;
+        }
+        .social-icons a {
+            display: inline-block;
+            margin-right: 0.5rem;
+        }
+        .social-icons img {
+            width: 24px;
+            height: 24px;
+            transition: opacity 0.3s;
+        }
+        .social-icons img:hover {
+            opacity: 0.8;
+        }
+        .footer-bottom {
+            text-align: center;
+            margin-top: 2rem;
+            font-size: 0.8rem;
+            border-top: 1px solid #374151;
+            padding-top: 1rem;
+            color: #94a3b8;
         }
         .feedback {
             position: relative;
@@ -126,18 +167,19 @@
             justify-content: center;
         }
         .c{
-            justify-items: center;
-            background: #272c39;
+            width: 700px;
+            justify-items: start;
+            background: rgba(59, 130, 246, 0.1);
             border-radius: 8px;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-            margin: 15px;
-
-            max-width: 200px;
+            box-shadow: 0 4px 8px rgba(109, 243, 206, 0.1);
+            margin: 15px auto;
+            max-width: 400px;
             padding: 20px;
             transition: transform 0.2s;
+            text-align: left;
         }
         .m{
-            background:#a783a6;
+            background:#2563eb;
             color:  white;
             padding: 10px 15px;
             border: none;
@@ -148,7 +190,7 @@
             font-style: inherit;
         }
         .m:hover {
-            background: #4CAF50;
+            background: #2563eb;
         }
     </style>
 </head>
@@ -160,9 +202,8 @@
     <h1>Welcome, Admin!</h1>
 </header>
 <div class="togg" id="togg">
-    <a href="">Serves</a>
-    <a href="">Dashboard</a>
-    <a href="#">Objective</a>
+    <a href="redirect">Dashboard</a>
+    <a href="#about">Objective</a>
     <a href="manage">Setting</a>
     <a href="Login_handle">Logout</a>
 </div>
@@ -198,11 +239,50 @@
 </div>
 <div class="feedback">
     <div class="c">
-        <button class="m">Feedback from customers</button>
+        <form action="feedback" method="get">
+            <h5 style="color: white">Feedback from customers</h5>
+            <button class="m">Feedback</button>
+        </form>
     </div>
 </div>
-<footer>
-    <p>&copy; 2024 Real Estate Broker <a href="#">About Us</a></p>
+<footer class="footer" id="about">
+    <div class="footer-container">
+
+        <div class="footer-section">
+            <h3>About Us</h3>
+            <p>
+                We provide a seamless way to search for properties that suit your needs.
+                Discover your dream home or investment property with us.
+            </p>
+        </div>
+        <div class="footer-section">
+            <h3>Quick Links</h3>
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#properties">Properties</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </div>
+        <div class="footer-section">
+            <h3>Contact Us</h3>
+            <p><strong>Email:</strong> info@propertyfinder.com</p>
+            <p><strong>Phone:</strong> +251 985 094 082</p>
+            <p><strong>Address:</strong> 123 Main Street, New York, NY</p>
+        </div>
+        <div class="footer-section">
+            <h3>Follow Us</h3>
+            <div class="social-icons">
+                <a href="#"><img src="https://img.icons8.com/material-outlined/24/ffffff/facebook--v1.png" alt="Facebook"></a>
+                <a href="#"><img src="https://img.icons8.com/material-outlined/24/ffffff/twitter--v1.png" alt="Twitter"></a>
+                <a href="#"><img src="https://img.icons8.com/material-outlined/24/ffffff/instagram-new.png" alt="Instagram"></a>
+                <a href="#"><img src="https://img.icons8.com/material-outlined/24/ffffff/linkedin.png" alt="LinkedIn"></a>
+            </div>
+        </div>
+    </div>
+    <div class="footer-bottom">
+        <p>&copy; 2024 Effortless Property. All Rights Reserved.</p>
+    </div>
 </footer>
 <script>
     function toggleSidebar() {

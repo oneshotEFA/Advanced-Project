@@ -32,10 +32,17 @@ public class LoginHandle extends HttpServlet {
         }
     }
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+
         HttpSession session = request.getSession(false);
-        session.invalidate();
+        if (session != null) {
+            session.invalidate();
+        }
+        response.setHeader("Cache-Control", "no-store, no-cache, must-revalidate");
+        response.setHeader("Pragma", "no-cache");
+        response.setDateHeader("Expires", 0);
         RequestDispatcher rd = request.getRequestDispatcher("AdminLoginPage.jsp");
-        rd.forward(request,response);
+        rd.forward(request, response);
     }
+
 
 }

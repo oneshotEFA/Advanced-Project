@@ -32,10 +32,13 @@ public class AddProperties extends HttpServlet {
         try {
             PrintWriter out = response.getWriter();
             Manipuletor.add_property(Integer.parseInt(price),address,size,bed,bath,status,fis1,fis2,fis3,disc);
-            out.println("added");
+            request.setAttribute("msg","Added to Web Successfully");
         } catch (SQLException | IOException e) {
-            throw new RuntimeException(e);
+            request.setAttribute("msg","Error while Adding properties to Web");
+
         }
+        RequestDispatcher rd = request.getRequestDispatcher("Sell.jsp");
+        rd.forward(request, response);
     }
     private FileInputStream pathgeter(Part image) throws IOException {
         String Filename = Path.of(image.getSubmittedFileName()).getFileName().toString();

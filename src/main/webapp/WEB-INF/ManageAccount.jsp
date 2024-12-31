@@ -13,20 +13,20 @@
             font-family: 'Arial', sans-serif;
             margin: 0;
             padding: 0;
-            background-color: #f4f4f4;
+            background-color: #1e293b;
             color: #333;
         }
         .container {
             max-width: 400px;
             margin: 50px auto;
             padding: 20px;
-            background: white;
+            color: #fff;
+            background: rgba(59, 130, 246, 0.1);
             border-radius: 8px;
             box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
         }
         h1 {
             text-align: center;
-            color: #4a4a4a;
             margin-bottom: 20px;
         }
         label {
@@ -60,7 +60,7 @@
             color: #d9534f; /* Red for error messages */
         }
         .success {
-            color: #5cb85c; /* Green for success messages */
+            color: #5cb85c;
         }
         .section {
             margin-bottom: 30px; /* Space between sections */
@@ -92,7 +92,7 @@
         String message = "";
         if (request.getAttribute("success") != null) {
             message = (String) request.getAttribute("success");
-            out.print("<p class='message success'>" + message + "</p>");
+            out.print("<p class='success'>" + message + "</p>");
         } else if (request.getAttribute("current_error") != null) {
             message = (String) request.getAttribute("current_error");
             out.print("<p class='message'>" + message + "</p>");

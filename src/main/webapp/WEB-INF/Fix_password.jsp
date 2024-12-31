@@ -13,11 +13,12 @@
       justify-content: center;
       align-items: center;
       height: 100vh;
-      background-color: #f4f4f4;
+      background-color: #1e293b;
     }
     .container {
-      background: #fff;
+      background: rgba(59, 130, 246, 0.1);
       padding: 20px;
+      color: #fff;
       border-radius: 8px;
       box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
       width: 300px;
@@ -113,7 +114,7 @@
       <div id="myModal" class="modal">
         <div class="modal-content">
           <span class="close" onclick="closeModal()">&times;</span>
-          <p style="color: #4cae4c"><%=request.getAttribute("message_error")%></p>
+          <p style="color: red"><%=request.getAttribute("message_error")%></p>
         </div>
       </div>
       <%

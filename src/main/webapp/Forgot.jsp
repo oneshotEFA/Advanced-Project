@@ -1,10 +1,3 @@
-<%--
-  Created by IntelliJ IDEA.
-  User: efatr
-  Date: 12/29/2024
-  Time: 12:32 PM
-  To change this template use File | Settings | File Templates.
---%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <!DOCTYPE html>
 <html lang="en">
@@ -21,11 +14,12 @@
             justify-content: center;
             align-items: center;
             height: 100vh;
-            background-color: #f4f4f4;
+            background-color: #1e293b;
         }
         .container {
-            background: #fff;
+            background: rgba(59, 130, 246, 0.1);
             padding: 20px;
+            color: #fff;
             border-radius: 8px;
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
             text-align: center;
@@ -46,11 +40,23 @@
             border-radius: 4px;
             font-size: 16px;
             cursor: pointer;
+            border-inline: none;
         }
         button:hover {
             background-color: #0056b3;
         }
+        .error-message {
+            color: red;
+            margin-top: 20px;
+            font-size: 18px;
 
+        }
+        .success_message {
+            color: green;
+            margin-top: 20px;
+            font-size: 18px;
+
+        }
     </style>
 </head>
 <body>
@@ -59,42 +65,43 @@
     <p>Enter your email to receive a verification code.</p>
     <form method="get" action="forgot">
 
-        <input type="text" id="email" name="email" placeholder="Enter your email" required>
-        <button >Send Code</button>
+        <input type="text" id="email" name="email" placeholder="Enter your username" required>
+        <button onclick="showCodeInput()">Send Code</button>
     </form>
+
     <%
-        if(request.getAttribute("code")!=null){
-        String email= (String) request.getAttribute("email");
-        if(request.getAttribute("error")!=null){
-            out.println(request.getAttribute("error"));
-        }
-        else{
-            if(request.getAttribute("error_1")!=null){
-                out.println(request.getAttribute("error_1"));
-            }
-            else {
-                out.println("Verification key sent to your email fill the next input to continue");
-            }
+        String email = (String) request.getAttribute("email");
+        String errorMessage = (String) request.getAttribute("error");
+        String error_1 = (String) request.getAttribute("error_1");
+        String success = (String) request.getAttribute("success");
+        Boolean emailValid = (Boolean) request.getAttribute("emailValid");;
     %>
+
+    <% if (errorMessage != null) { %>
+    <div class="error-message">
+        <%= errorMessage %>
+    </div>
+    <% } %>
+
+    <% if (emailValid!=null) { %>
+    <%if(success!=null){%>
+    <div class="success_message">
+        <%=success%>
+    </div>
+    <%}%>
+    <%if(error_1!=null){%>
+    <div class="error-message">
+        <%= error_1 %>
+    </div>
+    <%}%>
     <form action="forgot" method="post">
-        <div id="codeInputSection" class="hidden">
-            <input type="hidden" value="<%=email%>" name="email">
-            <input type="text" id="verificationCode" name="verificationCode" placeholder="Enter verification code">
+        <div id="codeInputSection">
+            <input type="hidden" value="<%= email %>" name="email">
+            <input type="text" id="verificationCode" name="verificationCode" placeholder="Enter verification code" required>
             <button type="submit">Verify Code</button>
         </div>
     </form>
-    <%
-        }
-        }
-    %>
+    <% } %>
 </div>
-
-<script>
-    function showCodeInput() {
-        const codeInputSection = document.getElementById("codeInputSection");
-        codeInputSection.classList.remove("hidden");
-    }
-</script>
 </body>
 </html>
-
